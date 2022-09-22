@@ -1,5 +1,5 @@
 import type { AppProps } from "next/app";
-import { Header } from "../components/common/components/header/Header";
+import { Header } from "../src/common/components/header/Header";
 import "../styles/globals.css";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
