@@ -9,7 +9,7 @@ export const Header: FC = () => {
         <h2 className={styles.logo}>Moviebox</h2>
       </Link>
       <nav className={styles.nav}>
-        <Link href={"/"}>
+        <Link href={"/categories"}>
           <li className={styles.link}>Categories</li>
         </Link>
         <Link href={"/favorites"}>
