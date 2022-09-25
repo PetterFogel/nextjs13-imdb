@@ -7,3 +7,11 @@ export interface Movie {
   release_date: string;
   genres: string[];
 }
+
+export interface MoviesResponse {
+  data: {
+    results: Movie[];
+  };
+  isLoading: boolean;
+  error: string | null;
+}
