@@ -13,6 +13,9 @@ const Home: NextPage = () => {
   return (
     <div className={styles.root}>
       <PageTitle title="Welcome to Moviebox" isPrimary />
+      <p className={styles.subtitle}>
+        Feel free to browse movies and save them to your favorites list!
+      </p>
       {isLoading ? <Loader /> : <HomeList movies={data.results} />}
     </div>
   );

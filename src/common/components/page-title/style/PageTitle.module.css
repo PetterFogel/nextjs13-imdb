@@ -5,10 +5,12 @@
 .primaryTitle {
     color: #f3ce13;
     font-size: 3rem;
+    margin-bottom: 2rem;
 }
 
 .secondaryTitle {
     color: #fff;
     font-size: 2rem;
     font-weight: 400;
+    margin-bottom: 1rem;
 }
