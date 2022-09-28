@@ -1,0 +1,8 @@
+.loader {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-top: 5rem;
+    text-align: center;
+    animation: pulse 1000ms infinite;
+    letter-spacing: 1px;
+}
