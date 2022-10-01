@@ -1,5 +1,8 @@
 import { FC } from "react";
 import { Movie } from "../../../models/movie";
+import { MovieItem } from "../../common/components/movie-item/MovieItem";
+import { PageTitle } from "../../common/components/page-title/PageTitle";
+import styles from "./style/Home.module.css";
 
 interface HomeListProps {
   movies: Movie[];
@@ -8,12 +11,12 @@ interface HomeListProps {
 export const HomeList: FC<HomeListProps> = ({ movies }) => {
   return (
     <>
-      <h2>Movie List</h2>
-      {movies.map((movie) => (
-        <div key={movie.id}>
-          <h3>{movie.title}</h3>
-        </div>
-      ))}
+      <PageTitle title={"Upcoming:"} />
+      <div className={styles.movieListContainer}>
+        {movies.map((movie) => (
+          <MovieItem key={movie.id} movie={movie} />
+        ))}
+      </div>
     </>
   );
 };

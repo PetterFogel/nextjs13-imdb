@@ -4,7 +4,7 @@ import { PageTitle } from "../src/common/components/page-title/PageTitle";
 import { CategoryTypes } from "../src/common/constants/enums";
 import { useFetchMovies } from "../src/hooks/fetchMoviesHook";
 import { HomeList } from "../src/pages/home-page/HomeList";
-import styles from "../styles/Home.module.css";
+import styles from "../src/pages/home-page/style/Home.module.css";
 
 const Home: NextPage = () => {
   const { data, isLoading, error } = useFetchMovies(CategoryTypes.Upcoming);
