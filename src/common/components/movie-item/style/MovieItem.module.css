@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 15rem;
+  width: 100%;
   box-shadow: 2px 3px 10px #000;
   border-radius: 0.5rem;
 }
@@ -28,8 +28,8 @@
 
 .title {
   color: #fff;
-  font-weight: bold;
-  font-size: 0.9rem;
+  font-weight: 500;
+  font-size: 0.8rem;
 }
 
 .rating {
