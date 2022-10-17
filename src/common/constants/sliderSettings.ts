@@ -3,8 +3,8 @@ import { Settings } from "react-slick";
 export const sliderSettings: Settings = {
   infinite: false,
   speed: 500,
-  slidesToShow: 5,
-  slidesToScroll: 5,
+  slidesToShow: 6,
+  slidesToScroll: 1,
   responsive: [
     {
       breakpoint: 1024,
