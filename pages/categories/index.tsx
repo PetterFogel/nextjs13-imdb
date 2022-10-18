@@ -6,10 +6,12 @@ import { CategoryTypes } from "../../src/common/constants/enums";
 import styles from "./style/Categories.module.css";
 
 interface CategoriesPageProps {
-  movies: Movie[];
+  movies: Movie[] | undefined;
 }
 
 const CategoriesPage: NextPage<CategoriesPageProps> = ({ movies }) => {
+  if (!movies) return <p>Something went wrong...</p>;
+
   return (
     <div className={styles.root}>
       <PageTitle title="Top rated" />
@@ -23,10 +25,9 @@ export const getStaticProps = async () => {
     `https://api.themoviedb.org/3/movie/${CategoryTypes.TopRated}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1`
   );
   const data = await res.json();
-
   return {
     props: {
-      movies: data.results,
+      movies: data.results ?? null,
     },
   };
 };
