@@ -3,14 +3,13 @@ import { Movie } from "../../models/movie";
 import { MoviesSlider } from "../../src/common/components/movies-slider/MoviesSlider";
 import { PageTitle } from "../../src/common/components/page-title/PageTitle";
 import { CategoryTypes } from "../../src/common/constants/enums";
-import styles from "./style/CategoriesStyle.module.css";
+import styles from "./style/Categories.module.css";
 
 interface CategoriesPageProps {
   movies: Movie[];
 }
 
 const CategoriesPage: NextPage<CategoriesPageProps> = ({ movies }) => {
-  console.log(movies);
   return (
     <div className={styles.root}>
       <PageTitle title="Top rated" />
