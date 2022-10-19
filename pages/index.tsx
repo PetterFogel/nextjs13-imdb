@@ -21,7 +21,7 @@ const Home: NextPage = () => {
       <br />
       <br />
       <p className={styles.subtitle}>Meanwhile, checkout upcoming movies:</p>
-      {isLoading ? <Loader /> : <HomeList movies={data.results} />}
+      {isLoading ? <Loader /> : <HomeList movies={data && data.results} />}
     </div>
   );
 };
