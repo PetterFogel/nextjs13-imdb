@@ -1,8 +1,10 @@
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import { Movie } from "../../models/movie";
+import { ErrorPanel } from "../../src/common/components/error-panel/ErrorPanel";
 import { MoviesSlider } from "../../src/common/components/movies-slider/MoviesSlider";
 import { PageTitle } from "../../src/common/components/page-title/PageTitle";
 import { CategoryTypes } from "../../src/common/constants/enums";
+import { fetcher } from "../../src/hooks/fetchMoviesHook";
 import styles from "./style/Categories.module.css";
 
 interface CategoriesPageProps {
@@ -10,9 +12,7 @@ interface CategoriesPageProps {
 }
 
 const CategoriesPage: NextPage<CategoriesPageProps> = ({ movies }) => {
-  console.log("Test2");
-
-  if (!movies) return <p>Something went wrong...</p>;
+  if (!movies) return <ErrorPanel />;
 
   return (
     <div className={styles.root}>
@@ -22,15 +22,14 @@ const CategoriesPage: NextPage<CategoriesPageProps> = ({ movies }) => {
   );
 };
 
-export const getStaticProps = async () => {
-  console.log("Test1");
+export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/${CategoryTypes.TopRated}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1`
   );
-  const data = await res.json();
+  const { results } = await res.json();
   return {
     props: {
-      movies: data.results ?? null,
+      movies: results ?? undefined,
     },
   };
 };
