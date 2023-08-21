@@ -19,7 +19,9 @@ const Home = async ({ searchParams }: Props) => {
       <section>
         {data.results.map((movie: any) => (
           <div key={movie.id}>
-            <h3>{movie.title}</h3>
+            <Link href={`/movie/${movie.id}`}>
+              <h3>{movie.title}</h3>
+            </Link>
           </div>
         ))}
       </section>
