@@ -1,4 +1,4 @@
-import { fetchData } from "@/utils/fetchData";
+import { getMovies } from "@/utils/fetchData";
 import Link from "next/link";
 
 type Props = {
@@ -6,7 +6,7 @@ type Props = {
 };
 
 const Home = async ({ searchParams }: Props) => {
-  const data = await fetchData(searchParams.genre || "upcoming");
+  const { results } = await getMovies(searchParams.genre || "upcoming");
 
   return (
     <main className="space-y-10">
@@ -17,7 +17,7 @@ const Home = async ({ searchParams }: Props) => {
         <Link href={`/?genre=popular`}>Popular</Link>
       </section>
       <section>
-        {data.results.map((movie: any) => (
+        {results.map((movie: any) => (
           <div key={movie.id}>
             <Link href={`/movie/${movie.id}`}>
               <h3>{movie.title}</h3>
