@@ -1,16 +1,5 @@
+import { fetchData } from "@/utils/fetchData";
 import Link from "next/link";
-
-const fetchData = async (genre: string | undefined) => {
-  console.log(genre);
-  const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${genre}?api_key=${process.env.API_KEY}&language=en-US&page=1`
-  );
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-  return res.json();
-};
 
 type Props = {
   searchParams: { genre: string | undefined };
