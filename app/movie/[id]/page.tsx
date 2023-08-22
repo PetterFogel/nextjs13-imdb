@@ -4,7 +4,7 @@ interface Props {
   params: { id: string };
 }
 
-const Movie = async ({ params: { id } }: Props) => {
+const MoviePage = async ({ params: { id } }: Props) => {
   const movie = await getMovie(id);
 
   return (
@@ -23,4 +23,4 @@ const Movie = async ({ params: { id } }: Props) => {
   );
 };
 
-export default Movie;
+export default MoviePage;
