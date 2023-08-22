@@ -26,7 +26,7 @@ const SearchPanel = () => {
   }
 
   return (
-    <form onSubmit={onSubmit} className="flex items-center ml-16">
+    <form onSubmit={onSubmit} className="flex items-center">
       <input
         type="text"
         name="search"
