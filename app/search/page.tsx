@@ -1,4 +1,5 @@
-import { getSearchedMovies } from "@/utils/fetchData";
+import { fetchMovies } from "@/utils/fetchData";
+import { queryParams } from "@/constants/constants";
 import Link from "next/link";
 
 type Props = {
@@ -7,7 +8,15 @@ type Props = {
 
 const SearchPage = async ({ searchParams }: Props) => {
   const { q: searchValue } = searchParams;
-  const { results } = await getSearchedMovies(searchValue);
+  const { results } = await fetchMovies(
+    searchValue ? "search/movie" : "movie/popular",
+    searchValue
+      ? {
+          ...queryParams,
+          query: searchValue,
+        }
+      : queryParams
+  );
 
   return (
     <section>
@@ -17,7 +26,7 @@ const SearchPage = async ({ searchParams }: Props) => {
           <span className="font-bold">&quot;{searchValue}&quot;</span>
         </p>
       )}
-      {results.map((movie: any) => (
+      {results.map((movie) => (
         <div key={movie.id}>
           <Link href={`/movie/${movie.id}`}>
             <h3>{movie.title}</h3>

@@ -1,21 +1,15 @@
-import { getMovies } from "@/utils/fetchData";
+import { queryParams } from "@/constants/constants";
+import { fetchMovies } from "@/utils/fetchData";
 
 import Link from "next/link";
 
-type Props = {
-  searchParams: { genre: string | undefined };
-};
-
-const HomePage = async ({ searchParams }: Props) => {
-  const { results } = await getMovies(searchParams.genre || "upcoming");
+const HomePage = async () => {
+  const { results } = await fetchMovies("movie/upcoming", queryParams);
 
   return (
-    <section className="space-y-10">
-      <section className="space-x-4">
-        <Link href={`/?genre=upcoming`}>Upcoming</Link>
-        <Link href={`/?genre=top_rated`}>Top rated</Link>
-        <Link href={`/?genre=popular`}>Popular</Link>
-      </section>
+    <section className="space-y-4">
+      <h1>Welcome to Flickify</h1>
+      <h2>Upcoming Movies</h2>
       <section>
         {results.map((movie: any) => (
           <div key={movie.id}>

@@ -1,19 +1,5 @@
+import { QueryParams } from "@/types/queryParams";
 import { IMovie, IMovies } from "@/types/movie";
-
-const API_KEY = process.env.API_KEY;
-
-export const getMovies = async (
-  genre: string | undefined
-): Promise<IMovies> => {
-  const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${genre}?api_key=${API_KEY}&language=en-US&page=1`
-  );
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-  return res.json();
-};
 
 export const getMovie = async (id: string): Promise<IMovie> => {
   const res = await fetch(
@@ -22,15 +8,17 @@ export const getMovie = async (id: string): Promise<IMovie> => {
   return await res.json();
 };
 
-export const getSearchedMovies = async (
-  searchValue: string | undefined
+export const fetchMovies = async (
+  endpoint: string,
+  queryParams: QueryParams
 ): Promise<IMovies> => {
-  const res = await fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&query=${searchValue}`
-  );
+  const queryString = new URLSearchParams(queryParams).toString();
+  const url = `https://api.themoviedb.org/3/${endpoint}?${queryString}`;
+  const res = await fetch(url);
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
+
   return res.json();
 };
