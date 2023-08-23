@@ -1,6 +1,5 @@
-import { queryParams } from "@/constants/constants";
 import { getMovies } from "@/lib/utils";
-
+import { queryParams } from "@/constants/constants";
 import Link from "next/link";
 
 const HomePage = async () => {
