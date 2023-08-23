@@ -15,18 +15,6 @@ const MobileMenu = () => {
   const openDialog = () => setIsOpen(true);
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 768) {
-        setIsOpen(false);
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [isOpen]);
-
-  useEffect(() => {
-    console.log(pathname);
-    console.log(searchParams);
     setIsOpen(false);
   }, [pathname, searchParams]);
 
@@ -37,7 +25,7 @@ const MobileMenu = () => {
         aria-label="Open mobile menu"
         className="flex items-center justify-center md:hidden"
       >
-        <Bars3Icon className="h-6" />
+        <Bars3Icon className="h-6 text-neutral-400" />
       </button>
       <Transition show={isOpen}>
         <Dialog onClose={closeDialog} className="relative z-50">
@@ -50,7 +38,7 @@ const MobileMenu = () => {
             leaveFrom="opacity-100 backdrop-blur-[.5px]"
             leaveTo="opacity-0 backdrop-blur-none"
           >
-            <div className="fixed inset-0 bg-black" aria-hidden="true" />
+            <div className="fixed inset-0 bg-grayDark" aria-hidden="true" />
           </Transition.Child>
           <Transition.Child
             as={Fragment}
@@ -61,10 +49,10 @@ const MobileMenu = () => {
             leaveFrom="translate-x-0"
             leaveTo="translate-x-[-100%]"
           >
-            <Dialog.Panel className="fixed bottom-0 left-0 right-0 top-0 flex h-full w-full flex-col bg-grayDark pb-6 dark:bg-black">
+            <Dialog.Panel className="fixed bottom-0 left-0 right-0 top-0 flex h-full w-full flex-col bg-grayDark pb-6 ">
               <div className="p-4 space-y-4">
                 <button
-                  className="text-white"
+                  className="text-neutral-400"
                   onClick={closeDialog}
                   aria-label="Close mobile menu"
                 >

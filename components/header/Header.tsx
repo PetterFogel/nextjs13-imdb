@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="flex items-center p-4 lg:px-6 bg-grayDark">
+    <header className="flex items-center px-4 py-2 lg:px-6 bg-grayDark">
       <div className="block md:hidden flex-1">
         <MobileMenu />
       </div>
