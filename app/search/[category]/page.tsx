@@ -1,4 +1,4 @@
-import { fetchMovies } from "@/utils/fetchData";
+import { getMovies } from "@/lib/utils";
 import { queryParams } from "@/constants/constants";
 import Link from "next/link";
 
@@ -7,7 +7,7 @@ type Props = {
 };
 
 const CategoryPage = async ({ params }: Props) => {
-  const { results } = await fetchMovies(
+  const { results } = await getMovies(
     `movie/${params.category || "upcoming"}`,
     queryParams
   );

@@ -5,10 +5,13 @@ export const getMovie = async (id: string): Promise<IMovie> => {
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`
   );
+
+  await wait(2000);
+
   return await res.json();
 };
 
-export const fetchMovies = async (
+export const getMovies = async (
   endpoint: string,
   queryParams: QueryParams
 ): Promise<IMovies> => {
@@ -20,5 +23,10 @@ export const fetchMovies = async (
     throw new Error("Failed to fetch data");
   }
 
+  await wait(2000);
+
   return res.json();
 };
+
+export const wait = async (ms: number) =>
+  new Promise((resolve) => setTimeout(resolve, ms));

@@ -1,10 +1,10 @@
 import { queryParams } from "@/constants/constants";
-import { fetchMovies } from "@/utils/fetchData";
+import { getMovies } from "@/lib/utils";
 
 import Link from "next/link";
 
 const HomePage = async () => {
-  const { results } = await fetchMovies("movie/upcoming", queryParams);
+  const { results } = await getMovies("movie/upcoming", queryParams);
 
   return (
     <section className="space-y-4">

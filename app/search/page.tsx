@@ -1,4 +1,4 @@
-import { fetchMovies } from "@/utils/fetchData";
+import { getMovies } from "@/lib/utils";
 import { queryParams } from "@/constants/constants";
 import Link from "next/link";
 
@@ -8,7 +8,7 @@ type Props = {
 
 const SearchPage = async ({ searchParams }: Props) => {
   const { q: searchValue } = searchParams;
-  const { results } = await fetchMovies(
+  const { results } = await getMovies(
     searchValue ? "search/movie" : "movie/popular",
     searchValue
       ? {

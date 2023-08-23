@@ -1,4 +1,4 @@
-import { getMovie } from "@/utils/fetchData";
+import { getMovie } from "@/lib/utils";
 
 interface Props {
   params: { id: string };
