@@ -4,7 +4,7 @@ const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
     extend: {
@@ -12,10 +12,10 @@ const config: Config = {
         primary: "#f3ce13",
         black: "#040401",
         white: "#fcfcfc",
-        grayDark: "#16191e",
-      },
-    },
+        grayDark: "#16191e"
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 };
 export default config;
