@@ -1,3 +1,4 @@
+import { EMPTY_MOVIE_URL, IMAGE_URL } from "@/constants/constants";
 import { IMovie } from "@/types/movie";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,7 +14,11 @@ const MovieItemsGrid = ({ movies }: Props) => {
         <div key={movie.id} className="">
           <Link href={`/movie/${movie.id}`}>
             <Image
-              src={`${process.env.IMAGE_URL}${movie?.poster_path}`}
+              src={
+                movie?.poster_path
+                  ? `${IMAGE_URL}${movie?.poster_path}`
+                  : EMPTY_MOVIE_URL
+              }
               alt={movie.title}
               height={700}
               width={700}
