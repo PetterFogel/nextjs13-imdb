@@ -1,6 +1,6 @@
 import { getMovies } from "@/lib/utils";
 import { queryParams } from "@/constants/constants";
-import Link from "next/link";
+import MovieItemsGrid from "@/components/movie-items-grid/MovieItemsGrid";
 
 type Props = {
   searchParams: { q: string | undefined };
@@ -13,7 +13,7 @@ const SearchPage = async ({ searchParams }: Props) => {
     searchValue
       ? {
           ...queryParams,
-          query: searchValue,
+          query: searchValue
         }
       : queryParams
   );
@@ -26,13 +26,7 @@ const SearchPage = async ({ searchParams }: Props) => {
           <span className="font-bold">&quot;{searchValue}&quot;</span>
         </p>
       )}
-      {results.map((movie) => (
-        <div key={movie.id}>
-          <Link href={`/movie/${movie.id}`}>
-            <h3>{movie.title}</h3>
-          </Link>
-        </div>
-      ))}
+      <MovieItemsGrid movies={results} />
     </section>
   );
 };
