@@ -28,8 +28,7 @@ const SearchPanel = () => {
   return (
     <form
       onSubmit={onSubmit}
-      className="w-max-[550px] relative w-full lg:w-80 xl:w-full"
-    >
+      className="w-max-[550px] relative w-full lg:w-80 xl:w-full">
       <input
         type="text"
         name="search"
@@ -37,10 +36,10 @@ const SearchPanel = () => {
         autoComplete="off"
         value={inputValue || ""}
         onChange={(e) => setInputValue(e.target.value)}
-        className="w-full rounded-lg border bg-white px-4 py-2 text-sm text-black placeholder:text-neutral-500 dark:border-neutral-800 dark:bg-transparent dark:text-white dark:placeholder:text-neutral-400"
+        className="w-full rounded-lg border border-none bg-grayDark px-4 py-2 text-sm tracking-wider text-white ring-1 ring-neutral-400/50 placeholder:text-neutral-400"
       />
       <div className="absolute right-0 top-0 mr-3 flex h-full items-center">
-        <MagnifyingGlassIcon className="h-4 text-black" />
+        <MagnifyingGlassIcon className="text-net h-4 text-neutral-400" />
       </div>
     </form>
   );

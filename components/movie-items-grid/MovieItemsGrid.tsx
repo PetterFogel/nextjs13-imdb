@@ -9,7 +9,7 @@ type Props = {
 
 const MovieItemsGrid = ({ movies }: Props) => {
   return (
-    <section className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4">
+    <section className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-8">
       {movies.map((movie) => (
         <div key={movie.id} className="">
           <Link href={`/movie/${movie.id}`}>

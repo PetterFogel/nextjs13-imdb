@@ -10,12 +10,16 @@ export const metadata: Metadata = {
   description: "This website is a competitor to imdb"
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <main className="m-auto max-w-7xl p-4 lg:px-6">{children}</main>
+        <main className="p-4 lg:px-6">{children}</main>
       </body>
     </html>
   );
