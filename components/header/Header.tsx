@@ -11,7 +11,7 @@ const Header = () => {
       </div>
       <nav className="flex w-full flex-1 items-center justify-center gap-6">
         <Link href="/">
-          <h1 className="text-xl text-primary">Flickify</h1>
+          <h1 className="text-xl font-bold text-primary">Flickify</h1>
         </Link>
         <ul className="hidden flex-1 gap-6 md:flex">
           <li>
