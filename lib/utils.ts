@@ -1,9 +1,9 @@
 import { QueryParams } from "@/types/queryParams";
-import { IMovie, IMovies } from "@/types/movie";
+import { IMovieDetails, IMovies } from "@/types/movie";
 
-export const getMovie = async (id: string): Promise<IMovie> => {
+export const getMovie = async (id: string): Promise<IMovieDetails> => {
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`
+    `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}&language=en-US`
   );
 
   await wait(2000);
