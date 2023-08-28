@@ -1,5 +1,6 @@
-import { EMPTY_MOVIE_URL, IMAGE_URL } from "@/constants/constants";
 import { IMovie } from "@/types/movie";
+import { StarIcon } from "@heroicons/react/20/solid";
+import { EMPTY_MOVIE_URL, IMAGE_URL } from "@/constants/constants";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -24,8 +25,12 @@ const MovieItemsGrid = ({ movies }: Props) => {
               width={700}
               priority
             />
-            <div>
+            <div className="flex items-center space-x-4">
               <p className="py-2 text-sm">{movie.title}</p>
+              <div className="flex items-center space-x-1">
+                <StarIcon className="h-4 text-primary" />
+                <span>{movie.vote_average}</span>
+              </div>
             </div>
           </Link>
         </div>

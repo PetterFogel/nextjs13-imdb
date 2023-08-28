@@ -2,7 +2,7 @@ export interface IMovie {
   id: string;
   title: string;
   poster_path: string;
-  vote_average: string;
+  vote_average: number;
   overview: string;
   release_date: string;
   genres: { id: number; name: string }[];
@@ -10,4 +10,9 @@ export interface IMovie {
 
 export interface IMovies {
   results: IMovie[];
+}
+
+export interface IMovieDetails extends IMovie {
+  runtime: number;
+  backdrop_path: string;
 }
