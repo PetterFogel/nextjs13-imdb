@@ -36,7 +36,7 @@ const MoviePage = async ({ params: { id } }: Props) => {
           </div>
         </div>
 
-        <div className="flex flex-col-reverse gap-3 text-xs text-neutral-400 lg:flex-row lg:gap-6 lg:text-sm">
+        <div className="flex flex-col-reverse gap-2 text-xs text-neutral-400 lg:flex-row lg:gap-6 lg:text-sm">
           <div className="flex gap-3">
             <p>{movie.release_date}</p>
             {movie.runtime && (
@@ -47,14 +47,14 @@ const MoviePage = async ({ params: { id } }: Props) => {
             )}
             <div className="hidden lg:block">|</div>
           </div>
-          <ul className="flex gap-2">
+          <ul className="flex flex-wrap gap-2">
             {movie.genres.map((genre) => (
               <li key={genre.id}>{genre.name}</li>
             ))}
           </ul>
         </div>
 
-        <div className="text-sm">{movie.overview}</div>
+        <div className="text-sm [text-wrap:balance]">{movie.overview}</div>
       </div>
     </section>
   );
