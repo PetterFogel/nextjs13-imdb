@@ -36,7 +36,7 @@ const SearchPanel = () => {
         autoComplete="off"
         value={inputValue || ""}
         onChange={(e) => setInputValue(e.target.value)}
-        className="w-full rounded-lg border border-none bg-grayDark px-4 py-2 text-sm tracking-wider text-white ring-1 ring-neutral-400/50 placeholder:text-neutral-400"
+        className="w-full appearance-none rounded-lg border border-none bg-grayDark px-4 py-2 text-sm tracking-wider text-white ring-1 ring-neutral-400/50 placeholder:text-neutral-400"
       />
       <div className="absolute right-0 top-0 mr-3 flex h-full items-center">
         <MagnifyingGlassIcon className="text-net h-4 text-neutral-400" />
