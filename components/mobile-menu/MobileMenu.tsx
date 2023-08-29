@@ -23,8 +23,7 @@ const MobileMenu = () => {
       <button
         onClick={openDialog}
         aria-label="Open mobile menu"
-        className="flex items-center justify-center md:hidden"
-      >
+        className="flex items-center justify-center md:hidden">
         <Bars3Icon className="h-6 text-neutral-400" />
       </button>
       <Transition show={isOpen}>
@@ -36,8 +35,7 @@ const MobileMenu = () => {
             enterTo="opacity-100 backdrop-blur-[.5px]"
             leave="transition-all ease-in-out duration-200"
             leaveFrom="opacity-100 backdrop-blur-[.5px]"
-            leaveTo="opacity-0 backdrop-blur-none"
-          >
+            leaveTo="opacity-0 backdrop-blur-none">
             <div className="fixed inset-0 bg-grayDark" aria-hidden="true" />
           </Transition.Child>
           <Transition.Child
@@ -47,15 +45,13 @@ const MobileMenu = () => {
             enterTo="translate-x-0"
             leave="transition-all ease-in-out duration-200"
             leaveFrom="translate-x-0"
-            leaveTo="translate-x-[-100%]"
-          >
+            leaveTo="translate-x-[-100%]">
             <Dialog.Panel className="fixed bottom-0 left-0 right-0 top-0 flex h-full w-full flex-col bg-grayDark pb-6 ">
-              <div className="p-4 space-y-4">
+              <div className="space-y-4 p-4">
                 <button
                   className="text-neutral-400"
                   onClick={closeDialog}
-                  aria-label="Close mobile menu"
-                >
+                  aria-label="Close mobile menu">
                   <XMarkIcon className="h-8" />
                 </button>
 
@@ -63,7 +59,7 @@ const MobileMenu = () => {
                 <ul className="flex w-full flex-col">
                   <li className="py-2 text-xl text-neutral-400 transition-colors hover:text-white">
                     <Link href={"/search"} onClick={closeDialog}>
-                      Genres
+                      Categories
                     </Link>
                   </li>
                 </ul>

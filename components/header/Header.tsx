@@ -18,7 +18,7 @@ const Header = () => {
             <Link
               href="/search"
               className="text-neutral-400 underline-offset-4 hover:text-white hover:underline">
-              Genres
+              Categories
             </Link>
           </li>
         </ul>
