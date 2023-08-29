@@ -15,14 +15,17 @@ export const EMPTY_MOVIE_URL =
 export const filterItems: IFilterItem[] = [
   {
     title: "Popular",
-    path: "/search/popular"
+    path: "/search/popular",
+    pathname: "popular"
   },
   {
     title: "Top rated",
-    path: "/search/top_rated"
+    path: "/search/top_rated",
+    pathname: "top_rated"
   },
   {
     title: "Upcoming",
-    path: "/search/upcoming"
+    path: "/search/upcoming",
+    pathname: "upcoming"
   }
 ];

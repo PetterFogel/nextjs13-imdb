@@ -1,9 +1,19 @@
+import { Metadata } from "next";
 import { getMovies } from "@/lib/utils";
 import { queryParams } from "@/constants/constants";
 import MovieItemsGrid from "@/components/movie-items-grid/MovieItemsGrid";
 
 type Props = {
   searchParams: { q: string | undefined };
+};
+
+export const generateMetadata = async ({
+  searchParams: { q: searchValue }
+}: Props): Promise<Metadata> => {
+  return {
+    title: searchValue || "Search",
+    description: "Search for products in the store."
+  };
 };
 
 const SearchPage = async ({ searchParams }: Props) => {

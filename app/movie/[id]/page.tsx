@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getMovie } from "@/lib/utils";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { EMPTY_MOVIE_URL, IMAGE_URL } from "@/constants/constants";
@@ -6,6 +7,17 @@ import Image from "next/image";
 interface Props {
   params: { id: string };
 }
+
+export const generateMetadata = async ({
+  params: { id }
+}: Props): Promise<Metadata> => {
+  const movie = await getMovie(id);
+
+  return {
+    title: movie.title,
+    description: movie.overview
+  };
+};
 
 const MoviePage = async ({ params: { id } }: Props) => {
   const movie = await getMovie(id);

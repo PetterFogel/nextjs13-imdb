@@ -6,7 +6,10 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Flickify",
+  title: {
+    default: "Flickify",
+    template: `%s | Flickify`
+  },
   description: "This website is a competitor to imdb"
 };
 

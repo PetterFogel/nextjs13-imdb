@@ -1,9 +1,22 @@
+import type { Metadata } from "next";
 import { getMovies } from "@/lib/utils";
-import { queryParams } from "@/constants/constants";
+import { filterItems, queryParams } from "@/constants/constants";
 import MovieItemsGrid from "@/components/movie-items-grid/MovieItemsGrid";
 
 type Props = {
   params: { category: string };
+};
+
+export const generateMetadata = async ({
+  params: { category }
+}: Props): Promise<Metadata> => {
+  const item = filterItems.find((item) => item.pathname === category);
+  console.log(item);
+
+  return {
+    title: item?.title,
+    description: category
+  };
 };
 
 const CategoryPage = async ({ params }: Props) => {
