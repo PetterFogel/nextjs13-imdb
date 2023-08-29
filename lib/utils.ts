@@ -6,7 +6,7 @@ export const getMovie = async (id: string): Promise<IMovieDetails> => {
     `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}&language=en-US`
   );
 
-  await wait(2000);
+  // await wait(2000);
 
   return await res.json();
 };
@@ -23,7 +23,7 @@ export const getMovies = async (
     throw new Error("Failed to fetch data");
   }
 
-  await wait(2000);
+  // await wait(2000);
 
   return res.json();
 };
