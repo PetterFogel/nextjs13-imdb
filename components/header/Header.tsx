@@ -27,7 +27,9 @@ const Header = () => {
         <SearchPanel />
       </div>
       <div className="flex flex-1 justify-end">
-        <StarIcon className="h-6 cursor-pointer text-neutral-400 hover:text-white" />
+        <Link href="/watchlist">
+          <StarIcon className="h-6 cursor-pointer text-neutral-400 hover:text-white" />
+        </Link>
       </div>
     </header>
   );
