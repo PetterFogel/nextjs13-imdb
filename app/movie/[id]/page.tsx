@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getMovie } from "@/lib/utils";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { EMPTY_MOVIE_URL, IMAGE_URL } from "@/constants/constants";
+import WatchlistButton from "@/components/watchlist-button/WatchlistButton";
 import Image from "next/image";
 
 interface Props {
@@ -67,6 +68,7 @@ const MoviePage = async ({ params: { id } }: Props) => {
         </div>
 
         <div className="text-sm [text-wrap:balance]">{movie.overview}</div>
+        <WatchlistButton movie={movie} />
       </div>
     </section>
   );

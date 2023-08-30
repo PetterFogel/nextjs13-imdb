@@ -12,7 +12,8 @@ const config: Config = {
         primary: "#f3ce13",
         black: "#040401",
         white: "#fcfcfc",
-        grayDark: "#16191e"
+        grayDark: "#16191e",
+        primaryHover: "#d1b10f"
       }
     }
   },
