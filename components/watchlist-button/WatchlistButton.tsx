@@ -2,23 +2,43 @@
 
 import { IMovie } from "@/types/movie";
 import { useStore } from "@/store/store";
-import { BookmarkIcon } from "@heroicons/react/20/solid";
+import { BookmarkIcon, CheckIcon } from "@heroicons/react/20/solid";
+import { useEffect, useState } from "react";
 
 type Props = {
   movie: IMovie;
 };
 
 const Index = ({ movie }: Props) => {
-  const { addToWatchlist } = useStore((state) => state);
+  const { watchlist, addToWatchlist, removeFromWatchlist } = useStore(
+    (state) => state
+  );
+  const [disabled, setDisabled] = useState(true);
+
+  useEffect(() => {
+    const exist = watchlist.find((m) => m.id === movie.id);
+    if (exist) return setDisabled(false);
+    setDisabled(true);
+  }, [watchlist, movie.id]);
 
   return (
-    <button
-      onClick={() => addToWatchlist(movie)}
-      className="mt-8 inline-flex items-center space-x-2 rounded bg-primary px-3 py-1 text-sm font-bold text-black hover:bg-primaryHover md:mt-8 md:px-4 md:py-2">
-      <BookmarkIcon className="h-3 text-black md:h-4" />
-      <span className="hidden md:block">|</span>
-      <span>Watchlist</span>
-    </button>
+    <div className="mt-4 md:mt-8">
+      {disabled ? (
+        <button
+          onClick={() => addToWatchlist(movie)}
+          className="inline-flex items-center space-x-2 rounded bg-primary px-3 py-1 text-sm font-bold text-black hover:bg-primaryHover md:px-4 md:py-2">
+          <BookmarkIcon className="h-3 md:h-4" />
+          <span>Watchlist</span>
+        </button>
+      ) : (
+        <button
+          onClick={() => removeFromWatchlist(movie.id)}
+          className="inline-flex items-center space-x-2 rounded bg-gray-600 px-3 py-1 text-sm font-bold text-neutral-200 hover:bg-gray-800 md:px-4 md:py-2">
+          <CheckIcon className="h-3 font-extrabold md:h-5" />
+          <span>Watchlist</span>
+        </button>
+      )}
+    </div>
   );
 };
 
