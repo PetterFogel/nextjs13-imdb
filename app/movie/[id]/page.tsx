@@ -38,7 +38,7 @@ const MoviePage = async ({ params: { id } }: Props) => {
           priority
         />
       </div>
-      <div className="w-2/3 space-y-2">
+      <div className="flex w-2/3 flex-col items-start gap-2">
         <div className="flex items-center gap-4">
           <h2 className="text-xl lg:text-3xl">{movie.title}</h2>
           <div className="flex items-center gap-1">
@@ -49,7 +49,7 @@ const MoviePage = async ({ params: { id } }: Props) => {
           </div>
         </div>
 
-        <div className="flex flex-col-reverse gap-2 text-xs text-neutral-400 lg:flex-row lg:gap-6 lg:text-sm">
+        <div className="flex flex-col-reverse gap-1 text-xs text-neutral-400 lg:flex-row lg:gap-6 lg:text-sm">
           <div className="flex gap-3">
             <p>{movie.release_date}</p>
             {movie.runtime && (
