@@ -26,7 +26,7 @@ const Filter = () => {
           ))}
         </ul>
       </div>
-      <div className="md:hidden">
+      <div className="relative z-50 md:hidden">
         <Dropdown filterItems={filterItems} />
       </div>
     </section>

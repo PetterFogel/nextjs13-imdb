@@ -62,6 +62,11 @@ const MobileMenu = () => {
                       Categories
                     </Link>
                   </li>
+                  <li className="py-2 text-xl text-neutral-400 transition-colors hover:text-white">
+                    <Link href={"/watchlist"} onClick={closeDialog}>
+                      Watchlist
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </Dialog.Panel>
