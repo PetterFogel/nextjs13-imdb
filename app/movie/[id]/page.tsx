@@ -68,7 +68,7 @@ const MoviePage = async ({ params: { id } }: Props) => {
         </div>
 
         <div className="text-sm [text-wrap:balance]">{movie.overview}</div>
-        <WatchlistButton movie={movie} />
+        <WatchlistButton movie={movie} isTextBtn />
       </div>
     </section>
   );
