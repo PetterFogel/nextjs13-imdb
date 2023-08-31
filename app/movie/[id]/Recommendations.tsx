@@ -10,7 +10,7 @@ const Recommendations = async ({ movieId }: Props) => {
 
   return (
     <section>
-      <h3 className="text-xl">We also recommend:</h3>
+      <h3 className="text-lg md:text-xl">We also recommend:</h3>
       <MovieSlider movies={results} />
     </section>
   );
