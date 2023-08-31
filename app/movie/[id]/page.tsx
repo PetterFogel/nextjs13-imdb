@@ -27,7 +27,7 @@ const MoviePage = async ({ params: { id } }: Props) => {
 
   return (
     <section className="m-auto max-w-5xl space-y-16">
-      <div className="flex gap-4">
+      <section className="flex gap-4">
         <div className="w-1/3">
           <Image
             src={
@@ -73,8 +73,19 @@ const MoviePage = async ({ params: { id } }: Props) => {
           <div className="text-sm [text-wrap:balance]">{movie.overview}</div>
           <WatchlistButton movie={movie} isTextBtn />
         </div>
-      </div>
-      <Suspense fallback={<p className="text-3xl text-red-500">Loading...</p>}>
+      </section>
+      <Suspense
+        fallback={
+          <div>
+            <div className="mb-4 h-7 w-44 animate-pulse bg-neutral-800" />
+            <div className="grid w-full grid-cols-3  gap-4 md:grid-cols-4">
+              <div className="h-48 animate-pulse bg-neutral-800 sm:h-56 md:h-80" />
+              <div className="h-48 w-auto animate-pulse bg-neutral-800 sm:h-56 md:h-80" />
+              <div className="h-48 w-auto animate-pulse bg-neutral-800 sm:h-56 md:h-80" />
+              <div className="hidden h-80 w-auto animate-pulse bg-neutral-800 md:block" />
+            </div>
+          </div>
+        }>
         <Recommendations movieId={movie.id} />
       </Suspense>
     </section>
