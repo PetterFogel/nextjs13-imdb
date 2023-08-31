@@ -6,6 +6,7 @@ import { EMPTY_MOVIE_URL, IMAGE_URL } from "@/constants/constants";
 import WatchlistButton from "@/components/watchlist-button/WatchlistButton";
 import Recommendations from "./Recommendations";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Props {
   params: { id: string };
@@ -29,17 +30,24 @@ const MoviePage = async ({ params: { id } }: Props) => {
     <section className="m-auto max-w-5xl space-y-16">
       <section className="flex gap-4">
         <div className="w-1/3">
-          <Image
-            src={
+          <Link
+            href={
               movie?.poster_path
                 ? `${IMAGE_URL}${movie.poster_path}`
                 : EMPTY_MOVIE_URL
-            }
-            alt={movie.title}
-            height={300}
-            width={300}
-            priority
-          />
+            }>
+            <Image
+              src={
+                movie?.poster_path
+                  ? `${IMAGE_URL}${movie.poster_path}`
+                  : EMPTY_MOVIE_URL
+              }
+              alt={movie.title}
+              height={300}
+              width={300}
+              priority
+            />
+          </Link>
         </div>
         <div className="flex w-2/3 flex-col items-start gap-2">
           <div className="flex items-center gap-4">
