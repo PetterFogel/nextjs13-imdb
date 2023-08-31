@@ -19,6 +19,11 @@ export const filterItems: IFilterItem[] = [
     pathname: "popular"
   },
   {
+    title: "Now playing",
+    path: "/search/now_playing",
+    pathname: "now_playing"
+  },
+  {
     title: "Top rated",
     path: "/search/top_rated",
     pathname: "top_rated"
