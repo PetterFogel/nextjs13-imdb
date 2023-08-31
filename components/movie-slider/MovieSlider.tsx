@@ -1,16 +1,15 @@
 "use client";
+import { useRef } from "react";
 import { IMovie } from "@/types/movie";
 import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  StarIcon
-} from "@heroicons/react/20/solid";
-import Slider, { Settings } from "react-slick";
-import { EMPTY_MOVIE_URL, IMAGE_URL } from "@/constants/constants";
+  EMPTY_MOVIE_URL,
+  IMAGE_URL,
+  sliderSettings
+} from "@/constants/constants";
+import SliderArrows from "./SliderArrows";
+import Slider from "react-slick";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
-import SliderArrows from "./SliderArrows";
 
 type Props = {
   movies: IMovie[];
@@ -18,13 +17,6 @@ type Props = {
 
 const MovieSlider = ({ movies }: Props) => {
   const sliderRef = useRef<Slider>(null);
-
-  const sliderSettings: Settings = {
-    infinite: false,
-    speed: 400,
-    slidesToShow: 4,
-    slidesToScroll: 4
-  };
 
   return (
     <div className="relative mt-4">
@@ -44,13 +36,7 @@ const MovieSlider = ({ movies }: Props) => {
                 width={700}
                 priority
               />
-              <div className="hidden items-center space-x-4 md:flex">
-                <p className="py-2 text-xs">{movie.title}</p>
-                <div className="flex items-center space-x-1">
-                  <StarIcon className="h-4 text-primary" />
-                  <span className="text-xs">{movie.vote_average}</span>
-                </div>
-              </div>
+              <p className="py-2 text-xs">{movie.title}</p>
             </Link>
           </div>
         ))}

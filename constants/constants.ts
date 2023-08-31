@@ -1,3 +1,4 @@
+import { Settings } from "react-slick";
 import { IFilterItem } from "@/types/filterItems";
 import { QueryParams } from "@/types/queryParams";
 
@@ -34,3 +35,19 @@ export const filterItems: IFilterItem[] = [
     pathname: "upcoming"
   }
 ];
+
+export const sliderSettings: Settings = {
+  infinite: false,
+  speed: 400,
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2.5,
+        slidesToScroll: 2
+      }
+    }
+  ]
+};
