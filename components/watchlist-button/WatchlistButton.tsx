@@ -30,15 +30,15 @@ const Index = ({ movie, isTextBtn }: Props) => {
             <button
               onClick={() => addToWatchlist(movie)}
               className="inline-flex items-center space-x-2 rounded bg-gray-600 px-3 py-1 text-sm font-bold text-neutral-200 hover:bg-gray-800 md:px-4 md:py-2">
-              <PlusIcon className="h-4 font-extrabold md:h-6" />
-              <span>Watchlist</span>
+              <PlusIcon className="h-4 md:h-6" />
+              <span className="text-xs md:text-sm">Watchlist</span>
             </button>
           ) : (
             <button
               onClick={() => removeFromWatchlist(movie.id)}
               className="inline-flex items-center space-x-2 rounded bg-primary px-3 py-1 text-sm font-bold text-black hover:bg-primaryHover md:px-4 md:py-2">
               <CheckIcon className="h-4 md:h-6" />
-              <span>Watchlist</span>
+              <span className="text-xs md:text-sm">Watchlist</span>
             </button>
           )}
         </div>
