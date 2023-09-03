@@ -1,3 +1,5 @@
+import { ICredits } from "./credits";
+
 export interface IMovie {
   id: string;
   title: string;
@@ -16,3 +18,5 @@ export interface IMovieDetails extends IMovie {
   runtime: number;
   backdrop_path: string;
 }
+
+export interface IMovieInfo extends ICredits, IMovies {}
