@@ -36,11 +36,27 @@ export const filterItems: IFilterItem[] = [
   }
 ];
 
-export const sliderSettings: Settings = {
+export const movieSliderSettings: Settings = {
   infinite: false,
   speed: 400,
   slidesToShow: 4,
   slidesToScroll: 4,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2.5,
+        slidesToScroll: 2
+      }
+    }
+  ]
+};
+
+export const castSliderSettings: Settings = {
+  infinite: false,
+  speed: 400,
+  slidesToShow: 5,
+  slidesToScroll: 5,
   responsive: [
     {
       breakpoint: 768,

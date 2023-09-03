@@ -10,12 +10,12 @@ const SliderArrows = ({ slider }: Props) => {
   return (
     <>
       <button
-        className="absolute inset-y-1/3 -left-3 z-10 hidden h-12 bg-black opacity-80 hover:opacity-100 md:flex"
+        className="absolute inset-y-1/3 -left-3 z-10 hidden h-12 bg-black opacity-80 hover:opacity-100 md:block"
         onClick={() => slider.current && slider.current.slickPrev()}>
         <ChevronLeftIcon className="h-10" />
       </button>
       <button
-        className="absolute inset-y-1/3 -right-3 z-10 hidden h-12 bg-black opacity-80 hover:opacity-100 md:flex"
+        className="absolute inset-y-1/3 -right-3 z-10 hidden h-12 bg-black opacity-80 hover:opacity-100 md:block"
         onClick={() => slider.current && slider.current.slickNext()}>
         <ChevronRightIcon className="h-10" />
       </button>
