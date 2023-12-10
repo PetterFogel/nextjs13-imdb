@@ -12,7 +12,7 @@ export const generateMetadata = async ({
 }: Props): Promise<Metadata> => {
   return {
     title: searchValue || "Search",
-    description: "Search for products in the store."
+    description: "Search for any movie you desire."
   };
 };
 
