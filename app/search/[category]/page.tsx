@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getMovies } from "@/lib/utils";
-import { filterItems, queryParams } from "@/constants/constants";
+import { filterItems } from "@/constants/constants";
 import MovieItemsGrid from "@/components/movie-items-grid/MovieItemsGrid";
 
 type Props = {
@@ -19,10 +19,7 @@ export const generateMetadata = async ({
 };
 
 const CategoryPage = async ({ params }: Props) => {
-  const { results } = await getMovies(
-    `movie/${params.category || "upcoming"}`,
-    queryParams
-  );
+  const { results } = await getMovies(`movie/${params.category || "upcoming"}`);
 
   return <MovieItemsGrid movies={results} />;
 };

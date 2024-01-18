@@ -1,5 +1,5 @@
 import { ICredits } from "@/types/credits";
-import { QueryParams } from "@/types/queryParams";
+import { queryParams } from "@/constants/constants";
 import { IMovieDetails, IMovieInfo, IMovies } from "@/types/movie";
 
 export const getMovie = async (id: string): Promise<IMovieDetails> => {
@@ -12,9 +12,19 @@ export const getMovie = async (id: string): Promise<IMovieDetails> => {
 
 export const getMovies = async (
   endpoint: string,
-  queryParams: QueryParams
+  searchValue?: string,
+  page?: string
 ): Promise<IMovies> => {
-  const queryString = new URLSearchParams(queryParams).toString();
+  const modifiedQueryParams = searchValue
+    ? {
+        ...queryParams,
+        query: searchValue,
+        page: page || "1"
+      }
+    : { ...queryParams, page: page || "1" };
+
+  const queryString = new URLSearchParams(modifiedQueryParams).toString();
+
   const url = `${process.env.API_URL}/${endpoint}?${queryString}`;
   const res = await fetch(url);
 
