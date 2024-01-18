@@ -28,7 +28,7 @@ const MoviePage = async ({ params: { id } }: Props) => {
   const movie = await getMovie(id);
 
   return (
-    <section className="m-auto max-w-5xl space-y-16">
+    <section className="m-auto mb-12 max-w-5xl space-y-16">
       <section className="flex gap-4">
         <div className="w-1/3">
           <Link

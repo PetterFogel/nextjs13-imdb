@@ -11,6 +11,8 @@ type Props = {
 const Recommendations = async ({ movieId }: Props) => {
   const { results } = await getMovieRecommendations(movieId);
 
+  if (results.length === 0) return null;
+
   return (
     <section>
       <div className="flex items-center justify-between">
