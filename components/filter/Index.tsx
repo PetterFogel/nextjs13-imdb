@@ -10,7 +10,9 @@ const Filter = () => {
   return (
     <section className="w-full md:max-w-[125px]">
       <div className="space-y-2">
-        <h3 className="hidden text-sm text-neutral-400 md:block">Categories</h3>
+        <h3 className="hidden text-sm font-bold text-neutral-400 md:block">
+          Discover
+        </h3>
         <ul className="hidden space-y-2 md:block">
           {filterItems.map((item, i) => (
             <li key={i}>
