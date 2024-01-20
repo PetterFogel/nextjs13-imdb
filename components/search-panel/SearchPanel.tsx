@@ -17,8 +17,13 @@ const SearchPanel = () => {
 
     const newParams = new URLSearchParams(searchParams.toString());
 
-    if (!inputValue) return newParams.delete("q");
+    if (!inputValue) {
+      newParams.delete("q");
+      return;
+    }
+    newParams.delete("page");
     newParams.set("q", inputValue);
+
     const paramsString = newParams.toString();
     const queryString = `${paramsString.length ? `?${paramsString}` : ""}`;
 

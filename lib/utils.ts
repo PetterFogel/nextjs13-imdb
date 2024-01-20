@@ -12,20 +12,20 @@ export const getMovie = async (id: string): Promise<IMovieDetails> => {
 
 export const getMovies = async (
   endpoint: string,
-  searchValue?: string,
-  page?: string
+  page?: string,
+  searchValue?: string
 ): Promise<IMovies> => {
   const modifiedQueryParams = searchValue
     ? {
         ...queryParams,
-        query: searchValue,
-        page: page || "1"
+        query: searchValue
       }
-    : { ...queryParams, page: page || "1" };
+    : { ...queryParams };
 
+  const pageString = page ? `&page=${page}` : "";
   const queryString = new URLSearchParams(modifiedQueryParams).toString();
 
-  const url = `${process.env.API_URL}/${endpoint}?${queryString}`;
+  const url = `${process.env.API_URL}/${endpoint}?${queryString}/${pageString}`;
   const res = await fetch(url);
 
   if (!res.ok) {

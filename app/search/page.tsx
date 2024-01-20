@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 import { getMovies } from "@/lib/utils";
-import { queryParams } from "@/constants/constants";
 import MovieItemsGrid from "@/components/movie-items-grid/MovieItemsGrid";
+import Pagination from "@/components/pagination/Pagination";
 
 type Props = {
-  searchParams: { q: string | undefined };
+  searchParams: { q: string | undefined; page: string | undefined };
 };
 
 export const generateMetadata = async ({
@@ -17,19 +17,15 @@ export const generateMetadata = async ({
 };
 
 const SearchPage = async ({ searchParams }: Props) => {
-  const { q: searchValue } = searchParams;
-  const { results } = await getMovies(
+  const { q: searchValue, page } = searchParams;
+  const { results, total_pages } = await getMovies(
     searchValue ? "search/movie" : "movie/popular",
+    page,
     searchValue
-      ? {
-          ...queryParams,
-          query: searchValue
-        }
-      : queryParams
   );
 
   return (
-    <section>
+    <section className="mb-8 space-y-8">
       {searchValue && results.length === 0 && (
         <p className="mb-4">
           There are no movies that match{" "}
@@ -37,6 +33,11 @@ const SearchPage = async ({ searchParams }: Props) => {
         </p>
       )}
       <MovieItemsGrid movies={results} />
+      <Pagination
+        page={page}
+        totalPages={total_pages}
+        searchValue={searchValue}
+      />
     </section>
   );
 };

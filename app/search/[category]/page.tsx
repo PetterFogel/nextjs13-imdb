@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import { getMovies } from "@/lib/utils";
 import { filterItems } from "@/constants/constants";
 import MovieItemsGrid from "@/components/movie-items-grid/MovieItemsGrid";
+import Pagination from "@/components/pagination/Pagination";
 
 type Props = {
   params: { category: string };
+  searchParams: { page: string | undefined };
 };
 
 export const generateMetadata = async ({
@@ -18,10 +20,20 @@ export const generateMetadata = async ({
   };
 };
 
-const CategoryPage = async ({ params }: Props) => {
-  const { results } = await getMovies(`movie/${params.category || "upcoming"}`);
+const CategoryPage = async ({ params, searchParams }: Props) => {
+  const { page } = searchParams;
+  const { category } = params;
+  const { results, total_pages } = await getMovies(
+    `movie/${category || "upcoming"}`,
+    page
+  );
 
-  return <MovieItemsGrid movies={results} />;
+  return (
+    <section className="mb-8 space-y-8">
+      <MovieItemsGrid movies={results} />
+      <Pagination page={page} totalPages={total_pages} category={category} />
+    </section>
+  );
 };
 
 export default CategoryPage;

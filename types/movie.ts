@@ -12,6 +12,9 @@ export interface IMovie {
 
 export interface IMovies {
   results: IMovie[];
+  page: number;
+  total_pages: number;
+  total_results: number;
 }
 
 export interface IMovieDetails extends IMovie {
