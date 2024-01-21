@@ -16,7 +16,7 @@ const Header = () => {
         <ul className="hidden flex-1 gap-6 md:flex">
           <li>
             <Link
-              href="/search"
+              href="/explore"
               className="text-neutral-400 underline-offset-4 hover:text-white hover:underline">
               Explore
             </Link>

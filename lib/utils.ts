@@ -1,3 +1,4 @@
+import { IGenres } from "@/types/genre";
 import { ICredits } from "@/types/credits";
 import { queryParams } from "@/constants/constants";
 import { IMovieDetails, IMovieInfo, IMovies } from "@/types/movie";
@@ -76,5 +77,26 @@ export const getMovieInfo = async (
   return res.json();
 };
 
-export const wait = async (ms: number) =>
-  new Promise((resolve) => setTimeout(resolve, ms));
+export const getMovieGenres = async (): Promise<IGenres> => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/genre/movie/list?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en`
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+};
+
+export const getMovieByGenreId = async (genreId: string): Promise<IMovies> => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/discover/movie/?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=${genreId}`
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+};

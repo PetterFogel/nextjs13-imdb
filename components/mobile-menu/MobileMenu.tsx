@@ -58,8 +58,8 @@ const MobileMenu = () => {
                 <SearchPanel />
                 <ul className="flex w-full flex-col">
                   <li className="py-2 text-xl text-neutral-400 transition-colors hover:text-white">
-                    <Link href={"/search"} onClick={closeDialog}>
-                      Discover
+                    <Link href={"/explore"} onClick={closeDialog}>
+                      Explore
                     </Link>
                   </li>
                   <li className="py-2 text-xl text-neutral-400 transition-colors hover:text-white">
