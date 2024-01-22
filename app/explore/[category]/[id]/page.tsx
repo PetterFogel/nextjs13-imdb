@@ -1,7 +1,6 @@
+import { getMovieByGenreId } from "@/lib/utils";
 import MovieItemsGrid from "@/components/movie-items-grid/MovieItemsGrid";
 import Pagination from "@/components/pagination/Pagination";
-import { getMovieByGenreId } from "@/lib/utils";
-import React from "react";
 
 type Props = {
   params: { category: string; id: string };
@@ -12,12 +11,17 @@ const GenrePage = async ({
   params: { category, id },
   searchParams: { page, name }
 }: Props) => {
-  console.log(name);
-  const { results, total_pages } = await getMovieByGenreId(id);
-
+  const { results, total_pages } = await getMovieByGenreId(id, page);
   return (
     <section className="mb-8 space-y-8">
       <MovieItemsGrid movies={results} />
+      <Pagination
+        page={page}
+        totalPages={total_pages}
+        category={category}
+        genreId={id}
+        genreName={name}
+      />
     </section>
   );
 };

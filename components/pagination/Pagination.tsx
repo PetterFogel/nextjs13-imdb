@@ -7,9 +7,18 @@ type Props = {
   totalPages: number;
   category?: string;
   searchValue?: string;
+  genreId?: string;
+  genreName?: string;
 };
 
-const Pagination = ({ page, totalPages, category, searchValue }: Props) => {
+const Pagination = ({
+  page,
+  totalPages,
+  category,
+  searchValue,
+  genreId,
+  genreName
+}: Props) => {
   const pathname = usePathname();
 
   const currentPage = page ? Number(page) : 1;
@@ -18,9 +27,19 @@ const Pagination = ({ page, totalPages, category, searchValue }: Props) => {
 
   const categoryPath = category ? `/${category}` : "";
   const searchValuePath = searchValue ? `?q=${searchValue}` : "";
-  const pagePath = searchValuePath ? `&page=${nextPage}` : `?page=${nextPage}`;
+  const genrePath = genreId && genreName ? `/${genreId}?name=${genreName}` : "";
 
-  const pathUrl = `${categoryPath}${searchValuePath}${pagePath}`;
+  const pagePath =
+    searchValuePath || genrePath ? `&page=${nextPage}` : `?page=${nextPage}`;
+
+  const prevPagePath =
+    searchValuePath || genrePath ? `&page=${prevPage}` : `?page=${prevPage}`;
+
+  const pathUrl = `${categoryPath}${searchValuePath}${genrePath}`;
+
+  console.log("CATEGORY", category);
+  console.log("GENRE", genrePath);
+  console.log("PATH", pathUrl);
 
   const firstSegment = pathname.split("/")[1];
 
@@ -28,7 +47,7 @@ const Pagination = ({ page, totalPages, category, searchValue }: Props) => {
     <div className="mt-8 flex items-center justify-center gap-8">
       {currentPage > 1 && (
         <Link
-          href={`/${firstSegment}${categoryPath}?page=${prevPage}`}
+          href={`/${firstSegment}${pathUrl}${prevPagePath}`}
           className="rounded-lg border border-none bg-grayDark px-4 py-2 text-sm tracking-wider  ring-1 ring-neutral-400/50 hover:ring-neutral-400">
           Previous
         </Link>
@@ -38,7 +57,7 @@ const Pagination = ({ page, totalPages, category, searchValue }: Props) => {
       </p>
       {currentPage < totalPages && (
         <Link
-          href={`/${firstSegment}${pathUrl}`}
+          href={`/${firstSegment}${pathUrl}${pagePath}`}
           className="rounded-lg border border-none bg-grayDark px-4 py-2 text-sm tracking-wider ring-1 ring-neutral-400/50 hover:ring-neutral-400">
           Next
         </Link>

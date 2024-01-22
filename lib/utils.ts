@@ -89,9 +89,13 @@ export const getMovieGenres = async (): Promise<IGenres> => {
   return res.json();
 };
 
-export const getMovieByGenreId = async (genreId: string): Promise<IMovies> => {
+export const getMovieByGenreId = async (
+  genreId: string,
+  page?: string
+): Promise<IMovies> => {
+  const pageString = page ? `&page=${page}` : "&page=1";
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/discover/movie/?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=${genreId}`
+    `${process.env.NEXT_PUBLIC_API_URL}/discover/movie/?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=${genreId}${pageString}`
   );
 
   if (!res.ok) {
