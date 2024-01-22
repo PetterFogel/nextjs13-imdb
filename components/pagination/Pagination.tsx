@@ -29,17 +29,13 @@ const Pagination = ({
   const searchValuePath = searchValue ? `?q=${searchValue}` : "";
   const genrePath = genreId && genreName ? `/${genreId}?name=${genreName}` : "";
 
-  const pagePath =
+  const nextPagePath =
     searchValuePath || genrePath ? `&page=${nextPage}` : `?page=${nextPage}`;
 
   const prevPagePath =
     searchValuePath || genrePath ? `&page=${prevPage}` : `?page=${prevPage}`;
 
   const pathUrl = `${categoryPath}${searchValuePath}${genrePath}`;
-
-  console.log("CATEGORY", category);
-  console.log("GENRE", genrePath);
-  console.log("PATH", pathUrl);
 
   const firstSegment = pathname.split("/")[1];
 
@@ -57,7 +53,7 @@ const Pagination = ({
       </p>
       {currentPage < totalPages && (
         <Link
-          href={`/${firstSegment}${pathUrl}${pagePath}`}
+          href={`/${firstSegment}${pathUrl}${nextPagePath}`}
           className="rounded-lg border border-none bg-grayDark px-4 py-2 text-sm tracking-wider ring-1 ring-neutral-400/50 hover:ring-neutral-400">
           Next
         </Link>
