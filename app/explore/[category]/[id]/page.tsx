@@ -1,10 +1,20 @@
 import { getMovieByGenreId } from "@/lib/utils";
 import MovieItemsGrid from "@/components/movie-items-grid/MovieItemsGrid";
+import type { Metadata } from "next";
 import Pagination from "@/components/pagination/Pagination";
 
 type Props = {
   params: { category: string; id: string };
   searchParams: { page: string | undefined; name: string | undefined };
+};
+
+export const generateMetadata = async ({
+  searchParams: { name }
+}: Props): Promise<Metadata> => {
+  return {
+    title: name,
+    description: "Find movies by genre"
+  };
 };
 
 const GenrePage = async ({

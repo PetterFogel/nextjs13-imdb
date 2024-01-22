@@ -9,7 +9,7 @@ type Props = {
 
 export const metadata: Metadata = {
   title: "Explore",
-  description: "Explore by discover by genres, search movies, and more"
+  description: "Discover movies by genres, search movies, and more"
 };
 
 const ExplorePage = async ({ searchParams: { page } }: Props) => {
