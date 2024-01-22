@@ -12,7 +12,10 @@ export const metadata: Metadata = {
     default: "Flickify",
     template: `%s | Flickify`
   },
-  description: "This website is a competitor to imdb"
+  description: "This website is a competitor to imdb",
+  icons: {
+    icon: "/icon.png"
+  }
 };
 
 export default function RootLayout({
