@@ -26,8 +26,8 @@ const Filter = () => {
 
   const genres = genresList.map((item) => ({
     title: item.name,
-    pathname: "",
-    path: `/explore/genres/${item.id}?name=${item.name}`
+    pathname: item.name,
+    path: `/explore/genre/${item.id}?name=${item.name}`
   }));
 
   const modifiedFilterItems = [...filterItems, ...genres];
@@ -61,7 +61,7 @@ const Filter = () => {
           {genresList.map((item, i) => (
             <li key={i} className="text-sm text-neutral-300">
               <Link
-                href={`/explore/genres/${item.id}?name=${item.name}`}
+                href={`/explore/genre/${item.id}?name=${item.name}`}
                 onClick={() => setValue(item.name)}
                 className={`w-full underline-offset-4 hover:underline`}>
                 {item.name}
