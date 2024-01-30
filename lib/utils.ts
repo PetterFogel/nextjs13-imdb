@@ -8,6 +8,8 @@ export const getMovie = async (id: string): Promise<IMovieDetails> => {
     `${process.env.API_URL}/movie/${id}?api_key=${process.env.API_KEY}&language=en-US`
   );
 
+  if (!res.ok) throw new Error("Failed to fetch data");
+
   return await res.json();
 };
 
@@ -29,9 +31,7 @@ export const getMovies = async (
   const url = `${process.env.API_URL}/${endpoint}?${queryString}/${pageString}`;
   const res = await fetch(url);
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
+  if (!res.ok) throw new Error("Failed to fetch data");
 
   return res.json();
 };
@@ -43,9 +43,7 @@ export const getMovieRecommendations = async (
     `${process.env.API_URL}/movie/${movieId}/recommendations?api_key=${process.env.API_KEY}&language=en-US&page=1`
   );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
+  if (!res.ok) throw new Error("Failed to fetch data");
 
   return res.json();
 };
@@ -55,9 +53,7 @@ export const getMovieCredits = async (movieId: string): Promise<ICredits> => {
     `${process.env.API_URL}/movie/${movieId}/credits?api_key=${process.env.API_KEY}&language=en-US`
   );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
+  if (!res.ok) throw new Error("Failed to fetch data");
 
   return res.json();
 };
@@ -70,9 +66,7 @@ export const getMovieInfo = async (
     `${process.env.API_URL}/movie/${movieId}/${category}?api_key=${process.env.API_KEY}&language=en-US&page=1`
   );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
+  if (!res.ok) throw new Error("Failed to fetch data");
 
   return res.json();
 };
@@ -82,9 +76,7 @@ export const getMovieGenres = async (): Promise<IGenres> => {
     `${process.env.NEXT_PUBLIC_API_URL}/genre/movie/list?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en`
   );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
+  if (!res.ok) throw new Error("Failed to fetch data");
 
   return res.json();
 };
@@ -98,9 +90,7 @@ export const getMovieByGenreId = async (
     `${process.env.NEXT_PUBLIC_API_URL}/discover/movie/?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=${genreId}${pageString}`
   );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
+  if (!res.ok) throw new Error("Failed to fetch data");
 
   return res.json();
 };
