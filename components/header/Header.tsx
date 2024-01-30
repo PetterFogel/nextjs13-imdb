@@ -30,7 +30,7 @@ const Header = () => {
         <Link
           href="/watchlist"
           className="group flex gap-1 text-neutral-400 underline-offset-4 hover:text-white hover:underline">
-          <span className="hidden md:block">Wathlist </span>
+          <span className="hidden md:block">Wacthlist </span>
           <BookmarkIcon className="h-6 cursor-pointer text-neutral-400 group-hover:text-white" />
         </Link>
       </div>
