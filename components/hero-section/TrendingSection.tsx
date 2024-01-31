@@ -1,19 +1,18 @@
 "use client";
 import { IMovie } from "@/types/movie";
-import { useEffect, useRef, useState } from "react";
+import { StarIcon } from "@heroicons/react/20/solid";
+import { useEffect, useState } from "react";
 import { EMPTY_MOVIE_URL, IMAGE_URL } from "@/constants/constants";
-import SliderArrows from "../slider/SliderArrows";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import Slider from "react-slick";
 import Image from "next/image";
 import Link from "next/link";
-import { StarIcon } from "@heroicons/react/20/solid";
 
 interface Props {
   movies: IMovie[];
 }
 
 const TrendingSection = ({ movies }: Props) => {
-  const sliderRef = useRef<Slider>(null);
   const [nav1, setNav1] = useState<Slider | null>(null);
   const [nav2, setNav2] = useState<Slider | null>(null);
   const [isBreakpointLg, setIsBreakpointLg] = useState(false);
@@ -36,7 +35,18 @@ const TrendingSection = ({ movies }: Props) => {
       <div className="flex flex-col gap-4 lg:flex-row">
         <div className="w-full max-w-none lg:max-w-2xl xl:max-w-3xl">
           <div className="relative">
-            <SliderArrows slider={sliderRef} />
+            <div>
+              <button
+                className="absolute inset-y-1/3 -left-3 z-10 hidden h-12 bg-black opacity-80 hover:opacity-100 md:block"
+                onClick={() => nav1?.slickPrev()}>
+                <ChevronLeftIcon className="h-10" />
+              </button>
+              <button
+                className="absolute inset-y-1/3 -right-3 z-10 hidden h-12 bg-black opacity-80 hover:opacity-100 md:block"
+                onClick={() => nav1?.slickNext()}>
+                <ChevronRightIcon className="h-10" />
+              </button>
+            </div>
             <Slider
               slidesToShow={1}
               slidesToScroll={1}
