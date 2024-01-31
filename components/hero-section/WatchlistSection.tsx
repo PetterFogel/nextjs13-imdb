@@ -35,7 +35,7 @@ const WatchlistSection = () => {
       ) : (
         <ItemsSlider
           settings={movieSliderSettings}
-          noArrows={movies.length > 4}>
+          noArrows={movies.length < 5}>
           {movies.map((movie) => (
             <MovieItem key={movie.id} movie={movie} />
           ))}
