@@ -73,7 +73,7 @@ export const getMovieInfo = async (
 
 export const getMovieGenres = async (): Promise<IGenres> => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/genre/movie/list?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en`
+    `${process.env.API_URL}/genre/movie/list?api_key=${process.env.API_KEY}&language=en`
   );
 
   if (!res.ok) throw new Error("Failed to fetch data");
@@ -87,7 +87,7 @@ export const getMovieByGenreId = async (
 ): Promise<IMovies> => {
   const pageString = page ? `&page=${page}` : "&page=1";
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/discover/movie/?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=${genreId}${pageString}`
+    `${process.env.API_URL}/discover/movie/?api_key=${process.env.API_KEY}&with_genres=${genreId}${pageString}`
   );
 
   if (!res.ok) throw new Error("Failed to fetch data");
