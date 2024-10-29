@@ -1,3 +1,21 @@
+## Flickify
+
+This project is created for users that are passionate about movies. With ease, render movies by category or search for a specific one. Make sure to add them to your watchlist!
+
+## Run the project
+
+To run the project, first clone the repository locally on your computer.
+
+After you have cloned it, run the command, npm install, in the terminal.
+
+Make then sure to create a file called, .env.local, in the root of the project.
+Add the first variable, API_URL=https://api.themoviedb.org/3
+To add the second one, you have to create a account on, https://www.themoviedb.org/, copy your api key, and add the second variable in the env file, API_KEY=<your-api-key> 
+
+After the variables are in place, start the project using the command, npm run dev.
+
+Lastley, explore and have fun!
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
